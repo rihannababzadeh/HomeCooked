@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="shortcut icon" href="https://rpubs.com/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet"> 
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+    <style>
+            body {    
+              margin: 0%;      
+              display: flex;
+              min-height: 100vh;
+              flex-direction: column;     
+              font-family: 'Catamaran', sans-serif;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b5bdc8+0,828c95+89,828c95+93,28343b+100 */
+background: #b5bdc8; /* Old browsers */
+background: -moz-linear-gradient(left, #b5bdc8 0%, #828c95 89%, #828c95 93%, #28343b 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #b5bdc8 0%,#828c95 89%,#828c95 93%,#28343b 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #b5bdc8 0%,#828c95 89%,#828c95 93%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=1 ); /* IE6-9 */
+
+              color: #002066;
+              height: 100%;
+            }
+            h2{
+             font-size: 25px; 
+            }
+            .address>p{
+             font-size: 20px; 
+            }
+            #map {
+             height: 320px;
+             width: 60%;
+            }
+            
+            footer {
+              bottom: 0%;
+              text-align: center;
+              padding: 5px;
+              margin-top: 10px;
+              flex-shrink: 0;
+              background-color: lightblue;
+               }
+            .form-row{
+              margin: 17px;             
+              padding: 10px;
+              display: flex;  
+              flex-direction: column;
+            }
+            .form-row input,textarea, select{
+              color: #002066;
+              border-color: #002066;
+              flex: 13;
+              max-width: 45%;
+              padding: 10px;  
+            }
+            .form-row select{
+              max-width: 47.5%;
+            }
+            #submit-button{ 
+              max-width: 46.5%;
+              flex: 5;
+              padding: 15px;
+              border: none;
+              background: #002066;
+              color: white;
+              text-transform: uppercase;
+              letter-spacing: .09em;
+              border-radius: 2px;
+            }
+            .form-row > label {
+              padding: .5em 1em .5em 0;
+              flex: 1 0 10px;
+              max-width: 120px;
+            }
+            section {
+              flex: 1 0 auto;
+              float: left;
+            }
+            .contact{
+              margin: 20px;
+              flex: 90%;  
+            }
+            .star{
+              margin: 17px;
+            }
+            .address{
+              margin: 17px;
+              flex: 10%;
+              align-self: center;
+            }
+            .content{
+              display: flex;
+            }
+         </style>
+     
+</head>
+<body>
+    <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <a class="navbar-brand" href="/">Home Cooked! </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+             </button>     
+             <div id="navbar" class="collapse navbar-collapse justify-content-end" >          
+               <ul class="nav navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link" href="contact.html">Contact</a>
+                   </li> 
+                  <li class="nav-item">
+                     <a class="nav-link" href="foods">Foods</a>
+                  </li>
+                 <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="/registration" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                     Register</a>
+                     <ul class="dropdown-menu dropdown-menu-right dropdown-lr animated flipInX" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                     <div class="col-lg-12">
+                       <div class="text-center">
+                         <h3><b>Register</b></h3></div>
+                       <form id="ajax-register-form" action="/registration" method="post" role="form" autocomplete="off">
+                         <div class="form-group">
+                           <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                         </div>
+                         <div class="form-group">
+                           <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                         </div>
+                         <div class="form-group">
+                           <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                         </div>
+                         <div class="form-group">
+                           <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                         </div>
+                         <div class="form-group">
+                           <div class="row">
+                             <div class="col-xs-6 col-xs-offset-3">
+                               <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
+                             </div>
+                           </div>
+                         </div>
+                         <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
+                       </form>
+                     </div>
+                   </ul>
+                 </li>
+                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                 <li class="nav-item dropdown">
+                   <a href="/login" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Log In <span class="caret"></span></a>                        
+                    <ul class="dropdown-menu dropdown-menu-right dropdown-lr animated slideInRight" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                     <div class="col-lg-12">
+                       <div class="text-center">
+                         <h3><b>Log In</b></h3></div>
+                       <form id="ajax-login-form" action="/login" method="post" role="form" autocomplete="off">
+                         <div class="form-group">
+                           <label for="username">Username</label>
+                           <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
+                         </div>
+         
+                         <div class="form-group">
+                           <label for="password">Password</label>
+                           <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+                         </div>
+         
+                         <div class="form-group">
+                           <div class="row">
+                             <div class="col-xs-7">
+                               <input type="checkbox" tabindex="3" name="remember" id="remember">
+                               <label for="remember"> Remember Me</label>
+                             </div>
+                             <div class="col-xs-5 pull-right">
+                               <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
+                             </div>
+                           </div>
+                         </div>
+         
+                         <div class="form-group">
+                           <div class="row">
+                             <div class="col-lg-12">
+                               <div class="text-center">
+                                 <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                         <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+                       </form>
+                       </div>
+                     </div>
+                   </ul>
+                 </li>
+               </ul>
+             </div>
+           </div>
+         </nav>
+        <div class="content">
+
+        <section>     
+
+              <div class="contact">
+                <img src="http://graymarketingandpr.com/wp-content/uploads/2015/11/flat_seo2-18-512.png" alt="Developers working on a new project"  width="150">
+                <h1>Contact Us!</h1>   
+              </div>                  
+                <form method="post" action="form.html">
+                    <div class=form-row>
+                      <label for="name">Name:*</label>
+                      <input pattern="^[a-zA-Z]+$" type="text" id="name" name="name" value="" placeholder="John Doe" required="required" autofocus="autofocus" />
+                    </div>
+                    <div class=form-row>
+                      <label for="email">Email Address:*</label>
+                      <input type="email" id="email" name="email" value="" placeholder="johndoe@example.com" required="required" />
+                    </div>
+                    <div class=form-row>
+                      <label for="telephone">Telephone: </label>
+                      <input pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$" type="tel" id="telephone" name="telephone" value="" />
+                      </div>
+                      <div class=form-row>
+                      <label for="enquiry">Enquiry: </label>
+                      <select id="enquiry" name="enquiry">
+                        <option value="general">General</option>
+                        <option value="academic">Academic</option>
+                        <option value="work">Work</option>
+                      </select>
+                    </div>
+                    <div class=form-row>
+                      <label for="message">Message:* </label>
+                      <textarea id="message" name="message" placeholder="Your message must be greater than 20 charcters" required="required" data-minlength="20"></textarea>                     
+                    </div>
+                    <div>
+                        <p class="star"> * indicates a required field</p>
+                    </div>
+                    <div class=form-row>
+                      <input type="button" value="Send a message" id="submit-button"/>
+                    </div>
+                </form>
+
+            </section>
+           <br>
+            
+            <div class="address">
+              <h2>Address</h2>
+              <p>1750 Pembina Hwy-Winnipeg-Manitoba- Canada</p>
+              <div id="map">
+                <script>
+                  function initMap() {
+                  var uluru = {lat:49.8264911, lng: -97.1519484};
+                  var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 13,
+                  center: uluru
+                  });
+                  var marker = new google.maps.Marker({
+                  position: uluru,
+                  map: map
+                  });
+                  }
+                </script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqA8E2Iu2s_fRkVcsUG__-lKf3fQEOCE&callback=initMap"></script>
+              </div>
+              </div>
+            </div>  
+            <script src="/nav.js"></script>   
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

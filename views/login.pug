@@ -1,0 +1,52 @@
+doctype html
+head
+  title Home Cooked
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='style.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  link(rel='stylesheet' href='style.css')
+link(href='http://cdn.phpoll.com/css/animate.css' rel='stylesheet')
+nav.navbar.navbar-expand-lg.bg-dark.navbar-dark
+  a.navbar-brand(href='/') Home Cooked! 
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbar.collapse.navbar-collapse.justify-content-end
+    ul.nav.navbar-nav
+      li.nav-item
+        a.nav-link(href='/foods') Foods
+      li.nav-item  
+        a.nav-link(href='/logout') Logout    
+script(src='//code.jquery.com/jquery-1.10.2.min.js')
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')
+section.hero
+  div
+    h1 Home Cooked
+  div
+    h2 You can order healthy delicious home cooked food here
+  .search-wrapper
+    .input-holder
+      input.search-input(type='text' placeholder='Search for address')
+      button.search-icon(onclick='searchToggle(this, event);')
+        span
+    span.close(onclick='searchToggle(this, event);')
+main
+script(src='/nav.js')
+script(src='//code.jquery.com/jquery-1.10.2.min.js')
+script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+script.
+  function searchToggle(obj, evt){
+  var container = $(obj).closest('.search-wrapper');
+  if(!container.hasClass('active')){
+  container.addClass('active');
+  evt.preventDefault();
+  }
+  else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+  container.removeClass('active');
+  // clear input
+  container.find('.search-input').val('');
+  }
+  }

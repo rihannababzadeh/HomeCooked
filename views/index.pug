@@ -1,0 +1,113 @@
+doctype html
+head
+  title Home Cooked
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  link(rel='stylesheet' href='style.css')
+  link(href='http://cdn.phpoll.com/css/animate.css' rel='stylesheet') 
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+nav.navbar.navbar-expand-lg.bg-dark.navbar-dark
+  a.navbar-brand(href='/') Home Cooked!
+  if authenticated 
+    p.greet
+      i.material-icons
+        | account_circle
+      |  Welcome #{username} 
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbar.collapse.navbar-collapse.justify-content-end
+    ul.nav.navbar-nav
+      li.nav-item
+        a.nav-link(href='/foods') Foods
+      li.nav-item
+        a.nav-link(href='/contact') Contact  
+      if authenticated 
+        li.nav-item
+          a.nav-link(href='/logout') Logout
+      if !authenticated        
+        li.nav-item.dropdown
+          a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='/registration' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            | Register
+          ul.dropdown-menu.dropdown-menu-right.dropdown-lr.animated.flipInX(role='menu' aria-labelledby='navbarDropdownMenuLink')
+            .col-lg-12
+              .text-center
+                h3
+                  b Register
+              form#ajax-register-form(action='/registration' method='post' role='form' autocomplete='off')
+                .form-group
+                  input#username.form-control(type='text' name='username' tabindex='1' placeholder='Username' value='')
+                .form-group
+                  input#email.form-control(type='email' name='email' tabindex='1' placeholder='Email Address' value='')
+                .form-group
+                  input#password.form-control(type='password' name='password' tabindex='2' placeholder='Password')
+                .form-group
+                  input#confirm-password.form-control(type='password' name='confirm-password' tabindex='2' placeholder='Confirm Password')
+                .form-group
+                  .row
+                    .col-xs-6.col-xs-offset-3
+                      input#register-submit.form-control.btn.btn-info(type='submit' name='register-submit' tabindex='4' value='Register Now')
+                input#token.hide(type='hidden' name='token' value='7c6f19960d63f53fcd05c3e0cbc434c0')
+        #navbarNavDropdown.collapse.navbar-collapse
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='/login' data-toggle='dropdown')
+              | Log In 
+              span.caret
+            ul.dropdown-menu.dropdown-menu-right.dropdown-lr.animated.slideInRight(role='menu' aria-labelledby='navbarDropdownMenuLink')
+              .col-lg-12
+                .text-center
+                  h3
+                    b Log In
+                form#ajax-login-form(action='/login' method='post' role='form' autocomplete='off')
+                  .form-group
+                    label(for='username1') Username
+                    input#username1.form-control(type='text' name='username' tabindex='1' placeholder='Username' value='' autocomplete='off')
+                  .form-group
+                    label(for='password1') Password
+                    input#password1.form-control(type='password' name='password' tabindex='2' placeholder='Password' autocomplete='off')
+                  .form-group
+                    .row
+                      .col-xs-7
+                        input#remember(type='checkbox' tabindex='3' name='remember')
+                        label(for='remember')  Remember Me
+                      .col-xs-5.pull-right
+                        input#login-submit.form-control.btn.btn-success(type='submit' name='login-submit' tabindex='4' value='Log In')
+                  .form-group
+                    .row
+                      .col-lg-12
+                        .text-center
+                          a.forgot-password(href='http://phpoll.com/recover' tabindex='5') Forgot Password?
+                  input#token1.hide(type='hidden' name='token' value='a465a2791ae0bae853cf4bf485dbe1b6')
+script(src='//code.jquery.com/jquery-1.10.2.min.js')
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')
+section.hero
+  div
+    h1 Home Cooked
+  div
+    h2 You can order healthy delicious home cooked food here
+  .search-wrapper
+    .input-holder
+      input.search-input(type='text' placeholder='Search for address')
+      button.search-icon(onclick='searchToggle(this, event);')
+        span
+    span.close(onclick='searchToggle(this, event);')
+main
+script(src='/nav.js')
+script(src='//code.jquery.com/jquery-1.10.2.min.js')
+script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+script.
+  function searchToggle(obj, evt){
+  var container = $(obj).closest('.search-wrapper');
+  if(!container.hasClass('active')){
+  container.addClass('active');
+  evt.preventDefault();
+  }
+  else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+  container.removeClass('active');
+  // clear input
+  container.find('.search-input').val('');
+  }
+  }

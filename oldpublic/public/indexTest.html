@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home Cooked</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+<body>
+    <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <a class="navbar-brand" href="index.html">Home Cooked! </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+             </button>     
+             <div id="navbar" class="collapse navbar-collapse justify-content-end" >          
+               <ul class="nav navbar-nav">
+                  <li class="nav-item">
+                     <a class="nav-link" href="foods">Foods</a>
+                  </li>
+                 <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" href="/registration" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                     Register</a>
+                     <ul class="dropdown-menu dropdown-menu-right dropdown-lr animated flipInX" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                     <div class="col-lg-12">
+                       <div class="text-center">
+                         <h3><b>Register</b></h3></div>
+                       <form id="ajax-register-form" action="http://phpoll.com/register/process" method="post" role="form" autocomplete="off">
+                         <div class="form-group">
+                           <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                         </div>
+                         <div class="form-group">
+                           <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                         </div>
+                         <div class="form-group">
+                           <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                         </div>
+                         <div class="form-group">
+                           <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                         </div>
+                         <div class="form-group">
+                           <div class="row">
+                             <div class="col-xs-6 col-xs-offset-3">
+                               <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
+                             </div>
+                           </div>
+                         </div>
+                         <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
+                       </form>
+                     </div>
+                   </ul>
+                 </li>
+                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                 <li class="nav-item dropdown">
+                   <a href="/login" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Log In <span class="caret"></span></a>                        
+                    <ul class="dropdown-menu dropdown-menu-right dropdown-lr animated slideInRight" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                     <div class="col-lg-12">
+                       <div class="text-center">
+                         <h3><b>Log In</b></h3></div>
+                       <form id="ajax-login-form" action="/login" method="post" role="form" autocomplete="off">
+                         <div class="form-group">
+                           <label for="username">Username</label>
+                           <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
+                         </div>
+         
+                         <div class="form-group">
+                           <label for="password1">Password</label>
+                           <input type="password" name="password" id="password1" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+                         </div>
+         
+                         <div class="form-group">
+                           <div class="row">
+                             <div class="col-xs-7">
+                               <input type="checkbox" tabindex="3" name="remember" id="remember">
+                               <label for="remember"> Remember Me</label>
+                             </div>
+                             <div class="col-xs-5 pull-right">
+                               <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
+                             </div>
+                           </div>
+                         </div>
+         
+                         <div class="form-group">
+                           <div class="row">
+                             <div class="col-lg-12">
+                               <div class="text-center">
+                                 <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                         <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+                       </form>
+                       </div>
+                     </div>
+                   </ul>
+                 </li>
+               </ul>
+             </div>
+           </div>
+         </nav>
+    
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<section class="hero" class="hero-inner">
+        
+        <div><h1>Home Cooked</h1></div>
+        <div><h2>You can order healthy delicious home cooked food here</h2></div>
+        <div class="search-wrapper">
+            <div class="input-holder">
+                <input type="text" class="search-input" placeholder="Search for address" />
+                <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+            </div>
+            <span class="close" onclick="searchToggle(this, event);"></span>
+         
+        </div>
+</section>
+<main>
+      
+      
+</main>
+<script src="/nav.js"></script>   
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+  function searchToggle(obj, evt){
+    var container = $(obj).closest('.search-wrapper');
+        if(!container.hasClass('active')){
+            container.addClass('active');
+            evt.preventDefault();
+        }
+        else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+            container.removeClass('active');
+            // clear input
+            container.find('.search-input').val('');
+        }
+}
+</script>
+</body>
+</html>

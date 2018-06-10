@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>foods</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      
+    <!-- <style>
+        .selector-for-some-widget {
+        box-sizing: content-box;
+      }
+      .flexsearch{
+        margin-left: 20%;
+        width: 50%;
+      } -->
+    
+    </style>
+    <script src="main.js"></script>
+</head>
+<body>
+
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                                <div class="container-fluid">
+                                  <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                      <span class="sr-only">Toggle navigation</span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="index.html" class="active">Home Cooked! </a>
+                                  </div>
+                                  <div id="navbar" class="collapse navbar-collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                      <li><a href="foods.html">Foods</a></li>
+                                      <li class="dropdown">
+                                        <a href="/registration" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
+                                        <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
+                                          <div class="col-lg-12">
+                                            <div class="text-center">
+                                              <h3><b>Register</b></h3></div>
+                                                  <form  class="needs-validation" id="ajax-register-form" action="/registration" method="post" role="form" autocomplete="off">
+                                                      <fieldset><legend class="text-center">Valid information is required to register. <span class="req"><small> required *</small></span></legend>
+                                                      <div class="form-group">
+                                                          <label for="username"><span class="req">* </span> First name: </label>
+                                                          <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" id = "txt" onkeyup = "Validate(this)" required>
+                                                      </div>
+                                                      <div class="form-group">
+                                                          <label for="email"><span class="req">* </span> Email Address: </label>
+                                                          <input type="email" name="email" id="email" required type="text" onchange="email_validate(this.value);" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                                          <div class="status" id="status"></div>
+                                                        </div>
+                          
+                          
+                                                      <div class="form-group">
+                                                          <label for="password"><span class="req">* </span> Password: </label>
+                                                          <input type="password" name="password" tabindex="2" class="form-control inputpass" placeholder="Password" minlength="4" maxlength="16"  id="password">
+                                                      </div>
+                                                      <div class="form-group">
+                                                          <label for="pass2"><span class="req">* </span> Password Confirm: </label>
+                                                      <input required name="repassword" type="password" tabindex="2" class="form-control inputpass" minlength="4" maxlength="16" placeholder="Enter again to validate"  id="pass2" onkeyup="checkPass(); return false;">
+                                                      </div>
+                                                      <div class="form-group">
+                                                      <div class="row">
+                                                          <div class="col-xs-6 col-xs-offset-3">
+                                                          <input type="submit" class="btn btn-success" name="submit_reg" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
+                                                          </div>
+                                                      </div>
+                                                      </div>
+                                                      <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
+                                                  </fieldset>
+                                                  </form>
+                                          </div>
+                                        </ul>
+                                      </li>
+                                      <li class="dropdown">
+                                        <a href="/login" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
+                                        <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
+                                          <div class="col-lg-12">
+                                            <div class="text-center">
+                                              <h3><b>Log In</b></h3></div>
+                                            <form  class="needs-validation" id="ajax-login-form" action="/login" method="post" role="form" autocomplete="off">
+                                              <div class="form-group">
+                                                <label for="validationDefaultUsername">Username</label>
+                                                <input type="text" name="username" id="validationDefaultUsername" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
+                                              </div>
+                              
+                                              <div class="form-group">
+                                                <label for="password1">Password</label>
+                                                <input type="password" name="password" id="password1" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+                                              </div>
+                              
+                                              <div class="form-group">
+                                                <div class="row">
+                                                  <div class="col-xs-7">
+                                                    <input type="checkbox" tabindex="3" name="remember" id="remember">
+                                                    <label for="remember"> Remember Me</label>
+                                                  </div>
+                                                  <div class="col-xs-5 pull-right">
+                                                    <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
+                                                  </div>
+                                                </div>
+                                              </div>
+                              
+                                              <div class="form-group">
+                                                <div class="row">
+                                                  <div class="col-lg-12">
+                                                    <div class="text-center">
+                                                      <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <input type="hidden" class="hide" name="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+                                            </form>
+                                          </div>
+                                        </ul>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </nav>     
+
+
+    <!-- <div class='container'>
+        <div class="card-deck">
+                <div class="card">
+                  <img class="card-img-top" src="https://www.ediblelongisland.com/wp-content/uploads/sites/3/2017/01/PersianFood.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Middle Eastern Cuisine</h5>
+                    <p class="card-text">You can find great middle eastern cuisines cooked by your local chiefs here.</p>
+                    <div class="card-footer">
+                            <small class="text-muted"><a href='#'>Persian Cuisine</a></small>
+                    </div>
+                    <div class="card-footer">
+                            <small class="text-muted"><a href='#'>Azeri Cuisine</a></small>
+                    </div>
+                    <div class="card-footer">
+                            <small class="text-muted"><a href='#'>Arab Cuisine</a></small>
+                    </div>       
+                        
+                  </div>
+                </div>
+                <div class="card">
+                  <img class="card-img-top" src="http://strongertogether.coop/sites/default/files/wp-content/uploads/2013/02/Traditional_Asian_Food_Flavorful_Healthful_0.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Asian Cuisine</h5>
+                    <p class="card-text">Are you missing your grandma's Kimchi? Or Ramyon? Just take a look at these deicious home made foods!</p>
+                    <div class="card-footer">
+                            <small class="text-muted"><a href='#'>Chinese Cuisine</a></small>
+                    </div>
+                    <div class="card-footer">
+                            <small class="text-muted"><a href='#'>Korean Cuisine</a></small>
+                    </div>
+                    <div class="card-footer">
+                            <small class="text-muted"><a href='#'>Thai Cuisine</a></small>
+                    </div>  
+                  </div>
+                </div>
+                <div class="card">
+                  <img class="card-img-top" src="https://www.africa.com/wp-content/uploads/2017/05/1-Couscous.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">African Cuisine</h5>
+                    <p class="card-text">Missing your home cooked African cuisine? Here is a 24/7 open local restaurant! </p>
+                    <div class="card-footer">
+                            <small class="text-muted"><a href='#'>Nigerian Cuisine</a></small>
+                    </div>
+                    <div class="card-footer">
+                            <small class="text-muted"><a href='#'>Jamaican Cuisine</a></small>
+                    </div>
+                    <div class="card-footer">
+                            <small class="text-muted"><a href='#'>South African Cuisine</a></small>
+                    </div>                    
+                </div>
+                </div>
+                <div class="card">
+                        <img class="card-img-top" src="https://images-gmi-pmc.edge-generalmills.com/6b36a62f-3083-499d-9165-f7219c086206.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">American Cuisine</h5>
+                          <p class="card-text">Taco? Empanada? You can find anything here! If you want you only have to click here!</p>
+                          <div class="card-footer">
+                                <small class="text-muted"><a href='#'>Mexican Cuisine</a></small>
+                        </div>
+                        <div class="card-footer">
+                                <small class="text-muted"><a href='#'>Argentine Cuisine</a></small>
+                        </div>
+                        <div class="card-footer">
+                                <small class="text-muted"><a href='#'>Canadan Cuisine</a></small>
+                        </div>                                            
+                    </div>
+                </div>
+              </div>  
+              <div>
+                    <div class="flexsearch">
+                            <div class="flexsearch--wrapper">
+                                <form class="flexsearch--form" action="#" method="post">
+                                    <div class="flexsearch--input-wrapper">
+                                        <input class="flexsearch--input" type="search" placeholder="Your favorite cusine">
+                                    </div>
+                                    <input class="flexsearch--submit" type="submit" value="&#10140;"/>
+                                </form>
+                            </div>
+                    </div>
+              </div>
+        </div>   -->
+        <script src="/nav.js"></script>   
+              <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+              <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+              <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+

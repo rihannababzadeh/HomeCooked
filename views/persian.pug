@@ -1,0 +1,160 @@
+doctype html
+head
+  title Persian
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  style.
+    .card-deck{
+    padding: 20px;
+    }
+    #left{
+    margin-left: 30%;
+    }
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  link(rel='stylesheet' href='style.css')
+  link(href='http://cdn.phpoll.com/css/animate.css' rel='stylesheet')
+div
+  nav.navbar.navbar-expand-lg.bg-dark.navbar-dark
+    a.navbar-brand(href='/') Home Cooked! 
+    if authenticated 
+      p.greet
+        i.material-icons
+          | account_circle
+        |  Welcome #{username} 
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbar.collapse.navbar-collapse.justify-content-end
+      ul.nav.navbar-nav
+        li.nav-item
+          a.nav-link(href='foods') Foods
+        li.nav-item
+          a.nav-link(href='/contact') Contact   
+        li.nav-item.dropdown
+          a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='/registration' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            | Register
+          ul.dropdown-menu.dropdown-menu-right.dropdown-lr.animated.flipInX(role='menu' aria-labelledby='navbarDropdownMenuLink')
+            .col-lg-12
+              .text-center
+                h3
+                  b Register
+              form#ajax-register-form(action='http://phpoll.com/register/process' method='post' role='form' autocomplete='off')
+                .form-group
+                  input#username.form-control(type='text' name='username' tabindex='1' placeholder='Username' value='')
+                .form-group
+                  input#email.form-control(type='email' name='email' tabindex='1' placeholder='Email Address' value='')
+                .form-group
+                  input#password.form-control(type='password' name='password' tabindex='2' placeholder='Password')
+                .form-group
+                  input#confirm-password.form-control(type='password' name='confirm-password' tabindex='2' placeholder='Confirm Password')
+                .form-group
+                  .row
+                    .col-xs-6.col-xs-offset-3
+                      input#register-submit.form-control.btn.btn-info(type='submit' name='register-submit' tabindex='4' value='Register Now')
+                input#token.hide(type='hidden' name='token' value='7c6f19960d63f53fcd05c3e0cbc434c0')
+        #navbarNavDropdown.collapse.navbar-collapse
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='/login' data-toggle='dropdown')
+              | Log In 
+              span.caret
+            ul.dropdown-menu.dropdown-menu-right.dropdown-lr.animated.slideInRight(role='menu' aria-labelledby='navbarDropdownMenuLink')
+              .col-lg-12
+                .text-center
+                  h3
+                    b Log In
+                form#ajax-login-form(action='/login' method='post' role='form' autocomplete='off')
+                  .form-group
+                    label(for='username') Username
+                    input#username.form-control(type='text' name='username' tabindex='1' placeholder='Username' value='' autocomplete='off')
+                  .form-group
+                    label(for='password') Password
+                    input#password.form-control(type='password' name='password' tabindex='2' placeholder='Password' autocomplete='off')
+                  .form-group
+                    .row
+                      .col-xs-7
+                        input#remember(type='checkbox' tabindex='3' name='remember')
+                        label(for='remember')  Remember Me
+                      .col-xs-5.float-right
+                        input#login-submit.form-control.btn.btn-success(type='submit' name='login-submit' tabindex='4' value='Log In')
+                  .form-group
+                    .row
+                      .col-lg-12
+                        .text-center
+                          a.forgot-password(href='http://phpoll.com/recover' tabindex='5') Forgot Password?
+                  input#token.hide(type='hidden' name='token' value='a465a2791ae0bae853cf4bf485dbe1b6')
+.container
+  h5.my-2
+  .row
+    #left.col-md-4
+      form.input-group(action='/search' method='POST')
+        input#example-search-input.form-control.py-2.border-right-0.border(name='search' type='search' value='search')
+        span.input-group-append
+          .input-group-text.bg-transparent
+            i.fa.fa-search
+        p#red  #{noresult}   
+.container
+  .card-deck
+    .card
+      img.card-img-top(src='http://www.whats4eats.com/files/grains-tahchin-wikimedia-Qomboy-4x3.jpg' alt='Card image cap')
+      .card-body
+        h5.card-title
+          i.material-icons
+            | local_dining
+          |  Tahchin
+        p.card-text
+          | Tahchin, also known as Persian Baked Rice Cake, is an Iranian rice cake primarily consisting of rice, yogurt, saffron. Some versions of the dish are more elaborate, folding in chicken, vegetables, fish, or red meat.
+        .card-footer
+          i.material-icons
+            | face
+          small.text-muted
+            a(href='#') Sara Amini
+    .card
+      img.card-img-top(src='https://cdn.shopify.com/s/files/1/0604/1077/articles/Ghormeh_Sabzi_Horiz-0188.jpg?v=1490823865' alt='Card image cap')
+      .card-body
+        h5.card-title
+          i.material-icons
+            | local_dining
+          |  Ghormeh Sabzi
+        p.card-text
+          | Ghormeh Sabzi is an Iranian herb stew.  The main ingredients are a mixture of sauteed herbs, consisting mainly of parsley, leeks or green onions, coriander, seasoned with the key spice of dried fenugreek leaves.
+        .card-footer
+          i.material-icons
+            | face
+          small.text-muted
+            a(href='#') Sahar Rasuli
+    .card
+      img.card-img-top(src='https://i1.wp.com/theunmanlychef.com/wp-content/uploads/2015/08/20141207_141457.jpg' alt='Card image cap')
+      .card-body
+        h5.card-title
+          i.material-icons
+            | local_dining
+          |  Kebab
+        p.card-text
+          | Kabab koobideh or k&umacr;bide is an Iranian meat kabab made from ground lamb or beef, and less commonly chicken, often mixed with parsley and chopped onions.
+        .card-footer
+          i.material-icons
+            | face
+          small.text-muted
+            a(href='#') Annahita Irani
+    .card
+      img.card-img-top(src='https://i.pinimg.com/originals/6e/bd/04/6ebd04325b971441a54b95018e3f82b0.jpg' alt='Card image cap')
+      .card-body
+        h5.card-title
+          i.material-icons
+            | local_dining
+          |  Macaroni
+        p.card-text
+          | Macaroni, also known as Persian Spaghetti, is a dish where Iranian and Italian cuisines come together.
+        .card-footer
+          i.material-icons
+            | face
+          small.text-muted
+            small.text-muted
+              a(href='#')  Sonia Elahi
+  script(src='/nav.js')
+  script(src='//code.jquery.com/jquery-1.10.2.min.js')
+  script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')

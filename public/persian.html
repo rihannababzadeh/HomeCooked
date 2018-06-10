@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home Cooked</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .card-deck{
+      padding: 20px;
+      
+    }
+    #left{
+      margin-left: 30%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+
+</head>
+<body>
+    <div>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+       <a class="navbar-brand" href="index.html">Home Cooked! </a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>     
+        <div id="navbar" class="collapse navbar-collapse justify-content-end" >          
+          <ul class="nav navbar-nav">
+             <li class="nav-item">
+                <a class="nav-link" href="foods">Foods</a>
+             </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/registration" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                Register</a>
+                <ul class="dropdown-menu dropdown-menu-right dropdown-lr animated flipInX" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <h3><b>Register</b></h3></div>
+                  <form id="ajax-register-form" action="http://phpoll.com/register/process" method="post" role="form" autocomplete="off">
+                    <div class="form-group">
+                      <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                    </div>
+                    <div class="form-group">
+                      <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-xs-6 col-xs-offset-3">
+                          <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
+                  </form>
+                </div>
+              </ul>
+            </li>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <li class="nav-item dropdown">
+              <a href="/login" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Log In <span class="caret"></span></a>                        
+               <ul class="dropdown-menu dropdown-menu-right dropdown-lr animated slideInRight" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <h3><b>Log In</b></h3></div>
+                  <form id="ajax-login-form" action="/login" method="post" role="form" autocomplete="off">
+                    <div class="form-group">
+                      <label for="username">Username</label>
+                      <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
+                    </div>
+    
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
+                    </div>
+    
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-xs-7">
+                          <input type="checkbox" tabindex="3" name="remember" id="remember">
+                          <label for="remember"> Remember Me</label>
+                        </div>
+                        <div class="col-xs-5 float-right">
+                          <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
+                        </div>
+                      </div>
+                    </div>
+    
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="text-center">
+                            <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+                  </form>
+                  </div>
+                </div>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+
+<div class="container">
+    <h5 class="my-2"></h5>
+    <div class="row">
+        <div class="col-md-4" id="left">
+            <div class="input-group">
+                <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">
+                <span class="input-group-append">
+                    <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div> 
+<div class='container'>
+    <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="http://www.whats4eats.com/files/grains-tahchin-wikimedia-Qomboy-4x3.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><i class="material-icons">
+                        local_dining
+                        </i> Tahchin</h5>
+                <p class="card-text">Tahchin, also known as Persian Baked Rice Cake, is an Iranian rice cake primarily consisting of rice, yogurt, saffron. Some versions of the dish are more elaborate, folding in chicken, vegetables, fish, or red meat.</p>
+                <div class="card-footer">
+                        <i class="material-icons">
+                                face
+                                </i><small class="text-muted"><a href='#'>Sara Amini</a></small>
+                </div>                        
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0604/1077/articles/Ghormeh_Sabzi_Horiz-0188.jpg?v=1490823865" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><i class="material-icons">
+                        local_dining
+                        </i> Ghormeh Sabzi</h5>
+                <p class="card-text">Ghormeh Sabzi is an Iranian herb stew.  The main ingredients are a mixture of sauteed herbs, consisting mainly of parsley, leeks or green onions, coriander, seasoned with the key spice of dried fenugreek leaves.</p>
+                <div class="card-footer">
+                        <i class="material-icons">
+                                face
+                                </i><small class="text-muted"><a href='#'>Sahar Rasuli</a></small>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="https://i1.wp.com/theunmanlychef.com/wp-content/uploads/2015/08/20141207_141457.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><i class="material-icons">
+                        local_dining
+                        </i> Kebab</h5>
+                <p class="card-text">Kabab koobideh or kūbide is an Iranian meat kabab made from ground lamb or beef, and less commonly chicken, often mixed with parsley and chopped onions. </p>
+                <div class="card-footer">
+                        <i class="material-icons">
+                                face
+                                </i> <small class="text-muted"><a href='#'>Annahita Irani</a></small>
+                </div>                    
+            </div>
+            </div>
+            <div class="card">
+                    <img class="card-img-top" src="https://i.pinimg.com/originals/6e/bd/04/6ebd04325b971441a54b95018e3f82b0.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title"><i class="material-icons">
+                            local_dining
+                            </i> Macaroni</h5>
+                      <p class="card-text">Macaroni, also known as Persian Spaghetti, is a dish where Iranian and Italian cuisines come together.</p>
+                      <div class="card-footer">
+                            <i class="material-icons">
+                                    face
+                                    </i> <small class="text-muted"> <small class="text-muted"><a href='#'> Sonia Elahi</a></small>
+                    </div>                                         
+                </div>
+            </div>
+          </div>
+
+        <script src="/nav.js"></script>   
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+doctype html
+head
+  link(rel='shortcut icon' href='https://rpubs.com/favicon.ico' type='image/x-icon')
+  link(href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet')
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  title Contact Me
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='style.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  style.
+    body {
+    margin: 0%;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Catamaran', sans-serif;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b5bdc8+0,828c95+89,828c95+93,28343b+100 */
+    background: #b5bdc8; /* Old browsers */
+    background: -moz-linear-gradient(left, #b5bdc8 0%, #828c95 89%, #828c95 93%, #28343b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #b5bdc8 0%,#828c95 89%,#828c95 93%,#28343b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #b5bdc8 0%,#828c95 89%,#828c95 93%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=1 ); /* IE6-9 */
+    color: #002066;
+    height: 100%;
+    }
+    h2{
+    font-size: 25px;
+    }
+    .address>p{
+    font-size: 20px;
+    }
+    #map {
+    height: 320px;
+    width: 60%;
+    }
+    footer {
+    bottom: 0%;
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+    flex-shrink: 0;
+    background-color: lightblue;
+    }
+    .form-row{
+    margin: 17px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    }
+    .form-row input,textarea, select{
+    color: #002066;
+    border-color: #002066;
+    flex: 13;
+    max-width: 45%;
+    padding: 10px;
+    }
+    .form-row select{
+    max-width: 47.5%;
+    }
+    #submit-button{
+    max-width: 46.5%;
+    flex: 5;
+    padding: 15px;
+    border: none;
+    background: #002066;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+    }
+    .form-row > label {
+    padding: .5em 1em .5em 0;
+    flex: 1 0 10px;
+    max-width: 120px;
+    }
+    section {
+    flex: 1 0 auto;
+    float: left;
+    }
+    .contact{
+    margin: 20px;
+    flex: 90%;
+    }
+    .star{
+    margin: 17px;
+    }
+    .address{
+    margin: 17px;
+    flex: 10%;
+    align-self: center;
+    }
+    .content{
+    display: flex;
+    }
+link(href='http://cdn.phpoll.com/css/animate.css' rel='stylesheet')
+link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+nav.navbar.navbar-expand-lg.bg-dark.navbar-dark
+  a.navbar-brand(href='/') Home Cooked! 
+  if authenticated 
+    p.greet
+        i.material-icons
+        | account_circle
+        |  Welcome #{username} 
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavDropdown' aria-controls='navbarNavDropdown' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbar.collapse.navbar-collapse.justify-content-end
+    ul.nav.navbar-nav
+      li.nav-item
+        a.nav-link(href='foods') Foods
+      li.nav-item
+        a.nav-link.active(href='contact') Contact
+      li.nav-item.dropdown
+        a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='/registration' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Register
+        ul.dropdown-menu.dropdown-menu-right.dropdown-lr.animated.flipInX(role='menu' aria-labelledby='navbarDropdownMenuLink')
+          .col-lg-12
+            .text-center
+              h3
+                b Register
+            form#ajax-register-form(action='/registration' method='post' role='form' autocomplete='off')
+              .form-group
+                input#username.form-control(type='text' name='username' tabindex='1' placeholder='Username' value='')
+              .form-group
+                input#email.form-control(type='email' name='email' tabindex='1' placeholder='Email Address' value='')
+              .form-group
+                input#password.form-control(type='password' name='password' tabindex='2' placeholder='Password')
+              .form-group
+                input#confirm-password.form-control(type='password' name='confirm-password' tabindex='2' placeholder='Confirm Password')
+              .form-group
+                .row
+                  .col-xs-6.col-xs-offset-3
+                    input#register-submit.form-control.btn.btn-info(type='submit' name='register-submit' tabindex='4' value='Register Now')
+              input#token.hide(type='hidden' name='token' value='7c6f19960d63f53fcd05c3e0cbc434c0')
+      #navbarNavDropdown.collapse.navbar-collapse
+        li.nav-item.dropdown
+          a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='/login' data-toggle='dropdown')
+            | Log In 
+            span.caret
+          ul.dropdown-menu.dropdown-menu-right.dropdown-lr.animated.slideInRight(role='menu' aria-labelledby='navbarDropdownMenuLink')
+            .col-lg-12
+              .text-center
+                h3
+                  b Log In
+              form#ajax-login-form(action='/login' method='post' role='form' autocomplete='off')
+                .form-group
+                  label(for='username') Username
+                  input#username.form-control(type='text' name='username' tabindex='1' placeholder='Username' value='' autocomplete='off')
+                .form-group
+                  label(for='password') Password
+                  input#password.form-control(type='password' name='password' tabindex='2' placeholder='Password' autocomplete='off')
+                .form-group
+                  .row
+                    .col-xs-7
+                      input#remember(type='checkbox' tabindex='3' name='remember')
+                      label(for='remember')  Remember Me
+                    .col-xs-5.pull-right
+                      input#login-submit.form-control.btn.btn-success(type='submit' name='login-submit' tabindex='4' value='Log In')
+                .form-group
+                  .row
+                    .col-lg-12
+                      .text-center
+                        a.forgot-password(href='http://phpoll.com/recover' tabindex='5') Forgot Password?
+                input#token.hide(type='hidden' name='token' value='a465a2791ae0bae853cf4bf485dbe1b6')
+.content
+  section
+    .contact
+      img(src='http://graymarketingandpr.com/wp-content/uploads/2015/11/flat_seo2-18-512.png' alt='Developers working on a new project' width='150')
+      h1 Contact Us!
+    form(method='post' action='form.html')
+      .form-row
+        label(for='name') Name:*
+        input#name(pattern='^[a-zA-Z]+$' type='text' name='name' value='' placeholder='John Doe' required='required' autofocus='autofocus')
+      .form-row
+        label(for='email') Email Address:*
+        input#email(type='email' name='email' value='' placeholder='johndoe@example.com' required='required')
+      .form-row
+        label(for='telephone') Telephone: 
+        input#telephone(pattern='^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$' type='tel' name='telephone' value='')
+      .form-row
+        label(for='enquiry') Enquiry: 
+        select#enquiry(name='enquiry')
+          option(value='general') General
+          option(value='Cookers') Cookers
+          option(value='Clients') Clients
+      .form-row
+        label(for='message') Message:* 
+        textarea#message(name='message' placeholder='Your message must be greater than 20 charcters' required='required' data-minlength='20')
+      div
+        p.star  * indicates a required field
+      .form-row
+        input#submit-button(type='button' value='Send a message')
+  br
+  .address
+    h2 Address
+    p 1750 Pembina Hwy-Winnipeg-Manitoba- Canada
+    #map
+      script.
+        function initMap() {
+        var uluru = {lat:49.8264911, lng: -97.1519484};
+        var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: uluru
+        });
+        var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+        });
+        }
+      script(async='' defer='' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyALqA8E2Iu2s_fRkVcsUG__-lKf3fQEOCE&callback=initMap')
+script(src='/nav.js')
+script(src='//code.jquery.com/jquery-1.10.2.min.js')
+script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
